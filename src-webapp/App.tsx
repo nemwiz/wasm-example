@@ -1,8 +1,9 @@
 import React from 'react';
+import Hello from './Hello';
 
 const App = () => {
     return (
-        <div>Hello React!</div>
+        <div><Hello name={'Typescript'}/></div>
     )
 }
 

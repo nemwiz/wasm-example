@@ -7,6 +7,7 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
         filename: "bootstrap.js",
     },
+    devtool: 'inline-source-map',
     module: {
         rules: [
             {
@@ -15,8 +16,16 @@ module.exports = {
                 use: {
                     loader: "babel-loader"
                 }
-            }
+            },
+            {
+                test: /\.(ts|tsx)$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
         ]
+    },
+    resolve: {
+        extensions: [ '.tsx', '.ts', '.js' ],
     },
     mode: "development",
     plugins: [
