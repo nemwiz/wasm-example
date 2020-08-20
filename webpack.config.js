@@ -18,6 +18,10 @@ module.exports = {
                 }
             },
             {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+            },
+            {
                 test: /\.(ts|tsx)$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
@@ -25,10 +29,14 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: [ '.tsx', '.ts', '.js' ],
+        extensions: ['.tsx', '.ts', '.js'],
     },
     mode: "development",
     plugins: [
         new CopyWebpackPlugin(['./src-webapp/index.html'])
     ],
+    devServer: {
+        publicPath: '/',
+        historyApiFallback: true,
+    }
 };
