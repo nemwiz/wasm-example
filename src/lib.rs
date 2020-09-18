@@ -8,6 +8,9 @@ use rand::{self, Rng};
 use wasm_bindgen::__rt::std::collections::{HashMap};
 use wasm_bindgen::prelude::*;
 use web_sys::console;
+use flate2::write::{DeflateEncoder};
+use std::io::prelude::*;
+use flate2::Compression;
 
 mod utils;
 
@@ -136,4 +139,11 @@ pub fn parse_csv_data_u8(csv_text: &[u8]) -> JsValue {
     sorted_values.sort_by(|&(_, a), &(_, b)| b.cmp(&a));
 
     JsValue::from_serde(&sorted_values[0..5]).unwrap()
+}
+
+#[wasm_bindgen]
+pub fn compress(file: &[u8]) -> Vec<u8> {
+    let mut encoder = DeflateEncoder::new(Vec::new(), Compression::default());
+    encoder.write_all(file).expect("Unable to compress file");
+    return encoder.finish().unwrap();
 }
