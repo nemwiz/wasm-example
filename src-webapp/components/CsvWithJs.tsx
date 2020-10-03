@@ -1,18 +1,13 @@
 import React, {FC, Fragment, useState} from "react";
-import {RouteComponentProps} from '@reach/router';
+import {WasmComponentProps} from '../model/wasm-component-props';
 import Papa from 'papaparse';
 import {nest} from 'd3-collection';
 import {sum} from 'd3-array';
-import FileInput from '../FileInput';
 // @ts-ignore
 import {BarChart} from 'react-d3-components';
+import FileInput from './shared/FileInput';
 
-interface JSLandProps extends RouteComponentProps {
-
-}
-
-const JSLand: FC<JSLandProps> = (() => {
-
+const CsvWithJs: FC<WasmComponentProps> = (() => {
     const [countryData, setCountryData] = useState<any>([]);
 
     const processCsvFile = async (inputElement: any) => {
@@ -63,12 +58,12 @@ const JSLand: FC<JSLandProps> = (() => {
     return (
         <Fragment>
             <FileInput onFileRead={processCsvFile}/>
-            {countryData.length !== 0 ? <BarChart data={countryData}
-                                                  width={800}
-                                                  height={400}
-                                                  margin={{top: 10, bottom: 50, left: 5, right: 5}}/> : null}
+            {/*{countryData.length !== 0 ? <BarChart data={countryData}*/}
+            {/*                                      width={800}*/}
+            {/*                                      height={400}*/}
+            {/*                                      margin={{top: 10, bottom: 50, left: 5, right: 5}}/> : null}*/}
         </Fragment>
     );
 });
 
-export default JSLand;
+export default CsvWithJs;

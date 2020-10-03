@@ -1,3 +1,7 @@
+body {
+    font-family: 'Raleway', Arial, sans-serif;
+}
+
 .main-container {
     display: flex;
     flex-direction: column;
@@ -7,7 +11,9 @@
 
 .navigation {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 0 0 60px 0;
 }
 
 .page-container {
@@ -15,8 +21,14 @@
     justify-content: center;
 }
 
+.navigate-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .navigate-button {
-    font-family: 'Raleway', Arial, sans-serif;
     border: none;
     background-color: #5666a5;
     border-radius: 5px;
@@ -74,4 +86,18 @@
     -webkit-transform: translateY(0%);
     transform: translateY(0%);
     opacity: 0.25;
+}
+
+.go-to-home-button {
+    background-color: #c92626;
+    border-color: #c92626;
+}
+
+.go-to-home-button:after {
+    border: #c92626;
+}
+
+.go-to-home-button:hover,
+.go-to-home-button.hover {
+    background-color: #b22929;
 }

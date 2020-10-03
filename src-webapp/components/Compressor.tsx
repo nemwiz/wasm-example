@@ -1,15 +1,9 @@
 import React, {FC} from "react";
-import FileInput from '../FileInput';
-
-let wasm: any;
-
-// TODO - find a nicer way to import this
-import('../../pkg/wasm_example').then(module => {
-    wasm = module;
-})
+import {WasmComponentProps} from '../model/wasm-component-props';
+import FileInput from './shared/FileInput';
 
 
-const CompressLand: FC = (() => {
+const Compressor: FC<WasmComponentProps> = (({wasmModule}) => {
     // TODO - replace any typings
     const compressCsvFile = async (inputElement: any) => {
 
@@ -19,7 +13,8 @@ const CompressLand: FC = (() => {
         console.time(logMessage);
 
         const textFromCsvFile = new Uint8Array(await file.arrayBuffer());
-        const compressedFile = wasm.compress(textFromCsvFile);
+        const compressor = wasmModule.Compressor.new();
+        const compressedFile = compressor.compress(textFromCsvFile);
 
         console.timeEnd(logMessage);
 
@@ -34,4 +29,4 @@ const CompressLand: FC = (() => {
     );
 });
 
-export default CompressLand;
+export default Compressor;

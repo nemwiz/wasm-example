@@ -8,7 +8,6 @@
 }
 
 .file-input + label {
-    max-width: 80%;
     font-size: 1.25rem;
     font-weight: 700;
     text-overflow: ellipsis;
@@ -17,8 +16,8 @@
     display: inline-block;
     overflow: hidden;
     padding: 0.625rem 1.25rem;
-    color: #f1e5e6;
-    background-color: #d3394c;
+    color: black;
+    background-color: #39e69e;
 }
 
 .file-input:focus + label,
@@ -39,5 +38,5 @@
 .file-input:focus + label,
 .file-input.has-focus + label,
 .file-input + label:hover {
-    background-color: #722040;
+    background-color: #32c689;
 }
