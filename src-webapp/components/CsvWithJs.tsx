@@ -7,7 +7,7 @@ import {sum} from 'd3-array';
 import {BarChart} from 'react-d3-components';
 import FileInput from './shared/FileInput';
 
-const CsvWithJs: FC<WasmComponentProps> = (() => {
+const CsvWithJs: FC<WasmComponentProps> = (({performanceScoreCallback}) => {
     const [countryData, setCountryData] = useState<any>([]);
 
     const processCsvFile = async (inputElement: any) => {
@@ -16,13 +16,8 @@ const CsvWithJs: FC<WasmComponentProps> = (() => {
 
         const t1 = performance.now();
 
-        console.log('CSV processing JS started...')
-
         const text = await file.text();
         const parsedText = Papa.parse(text, {header: true, dynamicTyping: true});
-
-        const t3 = performance.now();
-        console.log(`CSV processing JS took ${t3 - t1} milliseconds.`);
 
         const summarizedData = nest()
             .key((data: any) => data.country)
@@ -45,8 +40,11 @@ const CsvWithJs: FC<WasmComponentProps> = (() => {
                 }
             });
 
-        // const t2 = performance.now();
-        // console.log(`CSV processing JS took ${t2 - t1} milliseconds.`);
+        const t2 = performance.now();
+        performanceScoreCallback({
+            time: parseFloat((t2 - t1).toFixed(0)),
+            description: 'CSV processing in JS'
+        });
 
         setCountryData([{
             label: 'Cosmetics by country',

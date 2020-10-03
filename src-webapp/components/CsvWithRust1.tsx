@@ -3,14 +3,13 @@ import {WasmComponentProps} from '../model/wasm-component-props';
 import Papa from "papaparse";
 import FileInput from './shared/FileInput';
 
-const CsvWithRust1: FC<WasmComponentProps> = (({wasmModule}) => {
+const CsvWithRust1: FC<WasmComponentProps> = (({wasmModule, performanceScoreCallback}) => {
 
     const processCsvFile = async (inputElement: any) => {
 
         const file = await inputElement.current.files[0];
 
-        const logMessage = 'CSV processing with storage in Rust';
-        console.time(logMessage);
+        const t1 = performance.now();
 
         const textFromCsvFile = await file.text();
         const parsedText = Papa.parse(textFromCsvFile, {header: true, dynamicTyping: true});
@@ -20,9 +19,12 @@ const CsvWithRust1: FC<WasmComponentProps> = (({wasmModule}) => {
 
         const salesRecordStore = wasmModule.SalesRecordStore.new();
         const values = salesRecordStore.process_records_as_js_objects(parsedText.data, 'Meat');
-        console.log(values);
 
-        console.timeEnd(logMessage);
+        const t2 = performance.now();
+        performanceScoreCallback({
+            time: parseFloat((t2 - t1).toFixed(0)),
+            description: 'CSV processing in Rust with JS objects'
+        });
     }
 
     return (

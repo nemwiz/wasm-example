@@ -17,7 +17,7 @@
     overflow: hidden;
     padding: 0.625rem 1.25rem;
     color: black;
-    background-color: #39e69e;
+    background-color: #4FC3A1;
 }
 
 .file-input:focus + label,
@@ -38,5 +38,5 @@
 .file-input:focus + label,
 .file-input.has-focus + label,
 .file-input + label:hover {
-    background-color: #32c689;
+    background-color: #3ba086;
 }
