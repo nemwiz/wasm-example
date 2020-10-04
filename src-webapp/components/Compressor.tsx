@@ -9,14 +9,8 @@ const Compressor: FC<WasmComponentProps> = (({wasmModule}) => {
 
         const file = await inputElement.current.files[0];
 
-        const logMessage = 'File compression in Rust';
-        console.time(logMessage);
-
         const textFromCsvFile = new Uint8Array(await file.arrayBuffer());
-        const compressor = wasmModule.Compressor.new();
-        const compressedFile = compressor.compress(textFromCsvFile);
-
-        console.timeEnd(logMessage);
+        const compressedFile = wasmModule.FileCompressor.compress(textFromCsvFile);
 
         await fetch('http://localhost:8000/upload', {
             method: 'POST',
