@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC} from 'react';
 import {PerformanceScore} from '../../model/performance-score';
 
 interface PerformanceTableProps {
@@ -9,8 +9,8 @@ const PerformanceTable: FC<PerformanceTableProps> = (({performanceScores}) => {
     return (
         <div className={'performance-table'}>
             <h2>Peformance score</h2>
-            <div className="table-wrapper">
-                <table className="fl-table">
+            <div className='table-wrapper'>
+                <table className='fl-table'>
                     <thead>
                     <tr>
                         <th>Time in ms</th>

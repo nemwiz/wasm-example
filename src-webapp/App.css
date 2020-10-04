@@ -148,3 +148,78 @@ body {
 .fl-table tr:nth-child(even) {
     background: #F8F8F8;
 }
+
+.file-input-container {
+    display: flex;
+    justify-content: center;
+}
+
+.bar-chart-container {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    margin: 50px 0 0 0;
+}
+
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin: 10px 0 45px 0;
+    width: 50%;
+    text-align: center;
+}
+
+.form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #000;
+    outline: 0;
+    color: #4FC3A1;
+    font-size: 1.3rem;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+    text-align: center;
+}
+
+.form__field::placeholder {
+    color: transparent;
+}
+
+.form__field:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+}
+
+.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #4FC3A1;
+}
+
+.form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    border-image-slice: 1;
+}
+
+.form__field:focus ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #11998e;
+    font-weight: 700;
+}
+
+.form__field:required, .form__field:invalid {
+    box-shadow: none;
+}

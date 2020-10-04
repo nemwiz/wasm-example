@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC} from 'react';
 import {navigate, RouteComponentProps} from '@reach/router';
 import {Routes} from './shared/routes';
 

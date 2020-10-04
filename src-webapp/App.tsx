@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
 
 import {navigate, Router} from '@reach/router';
 import './App.css';
@@ -11,12 +11,14 @@ import Compressor from './components/Compressor';
 import {Routes} from './components/shared/routes';
 import PerformanceTable from './components/shared/PerformanceTable';
 import {PerformanceScore} from './model/performance-score';
+import TextInput from './components/shared/TextInput';
 
 
 const App = () => {
 
     const [wasmModule, setWasmModule] = useState<any>(undefined);
     const [performanceScores, setPerformanceScores] = useState<PerformanceScore[]>([]);
+    const [itemType, setItemType] = useState<string>();
 
     useEffect(() => {
         import('../pkg/wasm_example').then((module: any) => {
@@ -30,6 +32,10 @@ const App = () => {
         setPerformanceScores(newScores)
     };
 
+    const itemTypeCallback = (textInputEvent: ChangeEvent<HTMLInputElement>) => {
+        setItemType(textInputEvent.target.value);
+    }
+
     return (
         wasmModule ? <div className={'main-container'}>
             <div className={'navigation'}>
@@ -41,14 +47,33 @@ const App = () => {
 
             <PerformanceTable performanceScores={performanceScores}/>
 
+            <TextInput onChangeCallback={itemTypeCallback}/>
+
             <div className={'page-container'}>
                 <Router>
                     <Home path={'/'}/>
-                    <CsvWithJs path={Routes.CSV_WITH_JS} wasmModule={wasmModule} performanceScoreCallback={addPerformanceScore}/>
-                    <CsvWithRust1 path={Routes.CSV_WITH_RUST_1} wasmModule={wasmModule} performanceScoreCallback={addPerformanceScore}/>
-                    <CsvWithRust2 path={Routes.CSV_WITH_RUST_2} wasmModule={wasmModule} performanceScoreCallback={addPerformanceScore}/>
-                    <CsvWithRust3 path={Routes.CSV_WITH_RUST_3} wasmModule={wasmModule} performanceScoreCallback={addPerformanceScore}/>
-                    <Compressor path={Routes.COMPRESSOR} wasmModule={wasmModule}/>
+                    <CsvWithJs path={Routes.CSV_WITH_JS}
+                               wasmModule={wasmModule}
+                               itemType={itemType}
+                               performanceScoreCallback={addPerformanceScore}/>
+
+                    <CsvWithRust1 path={Routes.CSV_WITH_RUST_1}
+                                  wasmModule={wasmModule}
+                                  itemType={itemType}
+                                  performanceScoreCallback={addPerformanceScore}/>
+
+                    <CsvWithRust2 path={Routes.CSV_WITH_RUST_2}
+                                  wasmModule={wasmModule}
+                                  itemType={itemType}
+                                  performanceScoreCallback={addPerformanceScore}/>
+
+                    <CsvWithRust3 path={Routes.CSV_WITH_RUST_3}
+                                  wasmModule={wasmModule}
+                                  itemType={itemType}
+                                  performanceScoreCallback={addPerformanceScore}/>
+
+                    <Compressor path={Routes.COMPRESSOR}
+                                wasmModule={wasmModule}/>
                 </Router>
             </div>
         </div> : <div>Loading WASM module...</div>

@@ -1,11 +1,10 @@
-import React, {FC} from "react";
+import React, {FC, RefObject} from 'react';
 import {WasmComponentProps} from '../model/wasm-component-props';
 import FileInput from './shared/FileInput';
 
 
 const Compressor: FC<WasmComponentProps> = (({wasmModule}) => {
-    // TODO - replace any typings
-    const compressCsvFile = async (inputElement: any) => {
+    const compressCsvFile = async (inputElement: RefObject<HTMLInputElement>) => {
 
         const file = await inputElement.current.files[0];
 
