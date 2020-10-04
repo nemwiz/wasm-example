@@ -2,6 +2,32 @@
 
   <h1><code>wasm-pack-template</code></h1>
 
+  <sub>Built with 🦀🕸 by <a href="https://rustwasm.github.io/">The Rust and WebAssembly Working Group</a></sub>
+</div>
+
+## Before you start
+
+1. Install Rust
+2. Install wasm-pack
+3. Install Node
+
+## Compiling and running the project
+
+1. Run `wasm-pack build` (this needs to be done every time after change in Rust code)
+2. Run `npm start`
+3. Go to `http://localhost:8080`
+
+## Running a local Python server
+
+1. Run `cd server && python3 server.py`
+
+
+_____
+
+## About
+<div align="center">
+
+
   <strong>A template for kick starting a Rust and WebAssembly project using <a href="https://github.com/rustwasm/wasm-pack">wasm-pack</a>.</strong>
 
   <p>
@@ -14,10 +40,7 @@
     <a href="https://discordapp.com/channels/442252698964721669/443151097398296587">Chat</a>
   </h3>
 
-  <sub>Built with 🦀🕸 by <a href="https://rustwasm.github.io/">The Rust and WebAssembly Working Group</a></sub>
 </div>
-
-## About
 
 [**📚 Read this template tutorial! 📚**][template-docs]
 
