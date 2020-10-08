@@ -8,7 +8,7 @@ interface PerformanceTableProps {
 const PerformanceTable: FC<PerformanceTableProps> = (({performanceScores}) => {
     return (
         <div className={'performance-table'}>
-            <h2>Peformance score</h2>
+            <h2>Performance score</h2>
             <div className='table-wrapper'>
                 <table className='fl-table'>
                     <thead>
