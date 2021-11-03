@@ -5,11 +5,18 @@
   <sub>Built with 🦀🕸 by <a href="https://rustwasm.github.io/">The Rust and WebAssembly Working Group</a></sub>
 </div>
 
+## Web assembly for enterprise developers
+
+This is an example repo that I used on my talk for a local meetup in Singapore.
+You can watch the [full talk on YouTube](https://www.youtube.com/watch?v=xBfiYy3vECo)
+
 ## Before you start
 
 1. Install Rust
 2. Install wasm-pack
 3. Install Node
+
+Run `npm install` to pull in the dependencies.
 
 ## Compiling and running the project
 
@@ -23,6 +30,19 @@
 
 
 _____
+
+## Downloading large files via LFS
+
+This repo contains one big csv file with over 1 million record.
+
+To store large files in a repository, we use [Git LFS](https://git-lfs.github.com/).
+
+Steps to install:
+
+- Install [Git LFS](https://git-lfs.github.com/)
+- Run `sudo apt-get install git-lfs`
+- Run `git lfs pull` in this repository
+- The file will be downloaded in the `data` folder
 
 ## About
 <div align="center">
