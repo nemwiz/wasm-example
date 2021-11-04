@@ -13,6 +13,7 @@ const PerformanceTable: FC<PerformanceTableProps> = (({performanceScores}) => {
                 <table className='fl-table'>
                     <thead>
                     <tr>
+                        <th>Rank</th>
                         <th>Time in ms</th>
                         <th>Description</th>
                     </tr>
@@ -21,6 +22,7 @@ const PerformanceTable: FC<PerformanceTableProps> = (({performanceScores}) => {
                     {performanceScores
                         .map((score, index) =>
                             <tr key={index}>
+                                <td>{index + 1}</td>
                                 <td>{score.time}</td>
                                 <td>{score.description}</td>
                             </tr>
