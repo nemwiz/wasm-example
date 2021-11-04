@@ -36,7 +36,10 @@ module.exports = {
         new CopyWebpackPlugin(['./src-webapp/index.html'])
     ],
     devServer: {
-        publicPath: '/',
         historyApiFallback: true,
+    },
+    experiments: {
+        asyncWebAssembly: true,
+        syncWebAssembly: true
     }
 };
