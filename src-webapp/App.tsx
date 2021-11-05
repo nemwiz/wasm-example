@@ -12,7 +12,7 @@ import {Routes} from './components/shared/routes';
 import PerformanceTable from './components/shared/PerformanceTable';
 import {PerformanceScore} from './model/performance-score';
 import TextInput from './components/shared/TextInput';
-
+import Multithreading from './components/Multithreading';
 
 const App = () => {
 
@@ -74,6 +74,11 @@ const App = () => {
 
                     <Compressor path={Routes.COMPRESSOR}
                                 wasmModule={wasmModule}/>
+
+                    <Multithreading path={Routes.MULTITHREADING}
+                                    wasmModule={wasmModule}
+                                    itemType={itemType}
+                                    performanceScoreCallback={addPerformanceScore}/>
                 </Router>
             </div>
         </div> : <div>Loading WASM module...</div>

@@ -12,6 +12,7 @@ use flate2::Compression;
 use serde::{Serialize, Deserialize};
 
 mod utils;
+mod multi;
 
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
 // allocator.

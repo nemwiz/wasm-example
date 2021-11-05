@@ -28,6 +28,10 @@ const Home: FC<RouteComponentProps> = (() => {
                 navigate(Routes.COMPRESSOR)
             }}>Compressor</button>
 
+            <button className={'navigate-button'} onClick={() => {
+                navigate(Routes.MULTITHREADING)
+            }}>Multithreading</button>
+
         </div>
     );
 });

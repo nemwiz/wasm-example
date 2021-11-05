@@ -1,0 +1,1 @@
+RUSTFLAGS='-C target-feature=+atomics,+bulk-memory,+mutable-globals' rustup run nightly-2021-07-29 wasm-pack build --target web -- --features parallel -Z build-std=panic_abort,std

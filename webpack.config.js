@@ -36,10 +36,15 @@ module.exports = {
         new CopyWebpackPlugin(['./src-webapp/index.html'])
     ],
     devServer: {
+        headers: {
+          'Cross-Origin-Embedder-Policy': 'require-corp',
+          'Cross-Origin-Opener-Policy': 'same-origin'
+        },
         historyApiFallback: true,
     },
     experiments: {
         asyncWebAssembly: true,
-        syncWebAssembly: true
-    }
+        syncWebAssembly: true,
+        topLevelAwait: true
+    },
 };
