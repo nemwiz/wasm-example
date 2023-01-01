@@ -29,7 +29,7 @@
     "@types/react": "^16.9.44",
     "@types/react-dom": "^16.9.8",
     "babel-loader": "^8.2.3",
-    "copy-webpack-plugin": "^5.0.0",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.5.1",
     "hello-wasm-pack": "^0.1.0",
     "style-loader": "^3.3.1",
